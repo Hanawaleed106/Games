@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe Game</title>
+
+    <style>
+
+        body {
+            text-align: center;
+            background-color: #f5f0e6;
+            font-family: Arial;
+        }
+
+        h1 {
+            color: #5b3a29;
+        }
+
+        .game {
+            width: 330px;
+            height: 330px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: repeat(3, 110px);
+            gap: 5px;
+        }
+
+        .box {
+            width: 110px;
+            height: 110px;
+            background-color: white;
+            border: 2px solid black;
+            font-size: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .box:hover {
+            background-color: #ddd;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 18px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #result {
+            font-size: 25px;
+            color: #333;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<h1>⭕ Tic Tac Toe ❌</h1>
+
+<h2 id="result">Player X Turn</h2>
+
+
+<div class="game">
+
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+</div>
+
+
+<button onclick="restartGame()">Restart Game</button>
+
+
+<script>
+
+let boxes = document.querySelectorAll(".box");
+let result = document.getElementById("result");
+
+let player = "X";
+let gameOver = false;
+
+
+boxes.forEach(function(box){
+
+    box.onclick = function(){
+
+        if(box.innerHTML == "" && gameOver == false){
+
+            box.innerHTML = player;
+
+            checkWinner();
+
+            if(player == "X"){
+                player = "O";
+            }
+            else{
+                player = "X";
+            }
+
+            result.innerHTML = "Player " + player + " Turn";
+        }
+
+    }
+
+});
+
+
+
+function checkWinner(){
+
+    let winPatterns = [
+        [0,1,2],
+        [3,4,5],
+        [6,7,8],
+
+        [0,3,6],
+        [1,4,7],
+        [2,5,8],
+
+        [0,4,8],
+        [2,4,6]
+    ];
+
+
+    for(let pattern of winPatterns){
+
+        let a = boxes[pattern[0]].innerHTML;
+        let b = boxes[pattern[1]].innerHTML;
+        let c = boxes[pattern[2]].innerHTML;
+
+
+        if(a != "" && a == b && b == c){
+
+            result.innerHTML = "Player " + a + " Wins 🎉";
+            gameOver = true;
+        }
+
+    }
+
+}
+
+
+
+function restartGame(){
+
+    boxes.forEach(function(box){
+        box.innerHTML = "";
+    });
+
+    player = "X";
+    gameOver = false;
+    result.innerHTML = "Player X Turn";
+
+}
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chess Game</title>
+
+    <style>
+        body{
+            text-align:center;
+            background-color:#f5f0e6;
+            font-family:Arial;
+        }
+
+        h1{
+            color:#5b3a29;
+        }
+
+        .board{
+            width:480px;
+            height:480px;
+            margin:20px auto;
+            display:grid;
+            grid-template-columns:repeat(8,60px);
+            border:5px solid #333;
+        }
+
+        .board div{
+            width:60px;
+            height:60px;
+            font-size:40px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .board div:nth-child(odd){
+            background-color:#eee;
+        }
+
+        .board div:nth-child(even){
+            background-color:#8b5a2b;
+        }
+
+        button{
+            padding:10px 30px;
+            font-size:18px;
+            background-color:#4caf50;
+            color:white;
+            border:none;
+            border-radius:5px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>♟ Chess Game ♟</h1>
+
+<div class="board">
+
+    <div>♜</div>
+    <div>♞</div>
+    <div>♝</div>
+    <div>♛</div>
+    <div>♚</div>
+    <div>♝</div>
+    <div>♞</div>
+    <div>♜</div>
+
+    <div>♟</div>
+    <div>♟</div>
+    <div>♟</div>
+    <div>♟</div>
+    <div>♟</div>
+    <div>♟</div>
+    <div>♟</div>
+    <div>♟</div>
+
+    <div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div>
+
+    <div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div>
+
+    <div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div>
+
+    <div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div>
+
+    <div>♙</div>
+    <div>♙</div>
+    <div>♙</div>
+    <div>♙</div>
+    <div>♙</div>
+    <div>♙</div>
+    <div>♙</div>
+    <div>♙</div>
+
+    <div>♖</div>
+    <div>♘</div>
+    <div>♗</div>
+    <div>♕</div>
+    <div>♔</div>
+    <div>♗</div>
+    <div>♘</div>
+    <div>♖</div>
+
+</div>
+
+<button>Start Game</button>
+
+</body>
+</html>
